@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f5fd;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header {
+    width: 100%;
+    background-color: #4a90e2;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+main {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#city {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#search {
+    width: 100px;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(225, 247, 255);
+    border-radius: 30px;
+    border: 1px black solid;
+    cursor: pointer;
+}
+
+.results {
+    margin: 70px 0 20px;
+}
+
+.results .ciudades {
+    display: grid;
+    list-style-type: none;
+    grid-gap: 32px 20px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.results .ciudad {
+    position: relative;
+    padding: 40px 10%;
+    border-radius: 20px;
+    background: var(#fff);
+}
+
+.results .ciudad::after {
+    content: '';
+    width: 90%;
+    height: 50px;
+    position: absolute;
+    bottom: -12px;
+    left: 5%;
+    z-index: -1;
+    opacity: 0.3;
+    border-radius: 20px;
+    background: var(#fff);
+
+}
+
+.results figcaption {
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.results .ciudad-temp {
+    font-size: 5rem;
+    font-weight: bold;
+    margin-top: 10px;
+    color: var(#333);
+}
+
+.results .ciudad sup {
+
+    font-size: 0.5em;
+    
+}
+.results .ciudad-name sup {
+    padding: 0.2em 0.6em;
+    border-radius: 30px;
+    color: var(#fff);
+    background: var(#ff8c00);
+}
+
+.results .ciudad-icon {
+    margin-top: 10px;
+    width: 100px;
+    height: 150px;
+}
+
+footer {
+    width: 100%;
+    background-color: #4a90e2;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+}
+
+@media screen and (max-width: 1000px) {
+    body {
+        padding: 30px;
+    }
+
+    .results .ciudades {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
