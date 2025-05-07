@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f5f5fd;
+    background-color: #a6a6f8;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -17,10 +17,16 @@ body {
 
 header {
     width: 100%;
-    background-color: #4a90e2;
+    background-color: #a4cbf8;
     color: white;
     padding: 20px 0;
     text-align: center;
+    
+}
+
+header h1 {
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 5px rgb(99, 98, 98);
 }
 
 main {
@@ -44,14 +50,25 @@ main {
     width: 100px;
     padding: 10px;
     font-family: 'Poppins', sans-serif;
-    background-color: rgb(225, 247, 255);
+    background-color: rgb(212, 196, 253);
     border-radius: 30px;
+    margin-left: 10px;
     border: 1px black solid;
     cursor: pointer;
+    
+}
+
+#search:hover {
+    background-color: #4a90e2;
+    color: white;
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+    
 }
 
 .results {
-    margin: 70px 0 20px;
+    margin: 70px 0 100px;
+    
 }
 
 .results .ciudades {
@@ -63,9 +80,18 @@ main {
 
 .results .ciudad {
     position: relative;
-    padding: 40px 10%;
+    padding: 50px;
+    background-color: rgb(212, 196, 253);
     border-radius: 20px;
+    border: 1px solid black;
     background: var(#fff);
+    min-width: 240px;
+}
+
+.results .ciudad:hover {
+    transform: rotate3d(1, 1, 0, 30deg);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s ease-in-out;
 }
 
 .results .ciudad::after {
@@ -93,12 +119,13 @@ main {
     font-weight: bold;
     margin-top: 10px;
     color: var(#333);
+    
 }
 
 .results .ciudad sup {
 
     font-size: 0.5em;
-    
+       
 }
 .results .ciudad-name sup {
     padding: 0.2em 0.6em;
@@ -114,8 +141,12 @@ main {
 }
 
 footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    background-color: #4a90e2;
+    height: 100px;
+    background-color: #a4cbf8;
     color: white;
     text-align: center;
     padding: 10px 0;
@@ -123,12 +154,33 @@ footer {
     bottom: 0;
 }
 
-@media screen and (max-width: 1000px) {
-    body {
-        padding: 30px;
-    }
+footer p {
+    margin: 20px;
+    font-weight: bold;
+}
 
+@media screen and (max-width: 1020px) {
+    
     .results .ciudades {
         grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media screen and (max-width: 770px) {
+    
+    .results .ciudades {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 505px) {
+    
+    .results .ciudades {
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+
+    #search {
+        display: flex;
+        justify-content: center;
     }
 }

@@ -30,7 +30,7 @@ form.addEventListener("submit", e => {
         });
 
         if(filtrado.length > 0) {
-            msg.textContent = `Ya lo estás consultando para ${filtrado[0].querySelector(".ciudad-name span").textContent.toLowerCase()}`;
+            msg.innerHTML = `Ya estas observando la tarjeta clímatica de la ciudad "<strong>${ciudad}</strong>"...`;
             form.reset();
             input.focus();
             return;
@@ -42,6 +42,7 @@ form.addEventListener("submit", e => {
     fetch(url)
         .then(response => response.json())
         .then(data => {
+            
             const { main, name, sys, weather } = data;
             const icono = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${
                 weather[0]["icon"]
@@ -56,13 +57,14 @@ form.addEventListener("submit", e => {
             <div class="ciudad-temp">${Math.round(main.temp)}<sup>°C</sup></div>
             <figure>
                 <img class="ciudad-icon" src="${icono}" alt="${weather[0]["descripcion"]}">
+                <figcaption><strong>${weather[0]["description"]}</strong></figcaption>
             </figure>
             `;
             li.innerHTML = marca;
             lista.appendChild(li);
         })
         .catch(() => {
-            msg.textContent = "No se ha encontrado la ciudad, prueba de nuevo";
+            msg.innerHTML = `No pude encontrar la ciudad "<strong>${ciudad}</strong>", prueba con una ciudad real...`;
         });
 
     msg.textContent = "";
